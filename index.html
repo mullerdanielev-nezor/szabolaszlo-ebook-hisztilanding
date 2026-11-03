@@ -127,7 +127,9 @@ a { color: var(--brand); }
 .author-photo { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
 .author-head { position: relative; z-index: 1; align-self: center; text-align: center; }
 .author-arrow { position: absolute; left: 100%; top: 45%; width: clamp(44px, 14vw, 72px); height: auto; margin-left: 2px; overflow: visible; }
-.author img { display: block; width: 100%; height: auto; border: 8px solid #fff; border-radius: 24px; }
+.author-frame { padding: 8px; border-radius: 24px; background: #fff; }
+/* A vékony vonal elválasztja a képet a kerettől ott is, ahol a könyvek lapjai fehérek */
+.author img { display: block; width: 100%; height: auto; border-radius: 16px; box-shadow: 0 0 0 1px rgba(31, 58, 61, .35); }
 .author .eyebrow { color: #fff; }
 .author .h2, .author strong { color: #fff; }
 .author-more { margin-top: 16px; border-top: 1px solid rgba(255, 255, 255, .35); }
@@ -316,7 +318,7 @@ html:has(.co[open]) { overflow: hidden; }
         </div>
 
         <div class="hero-side">
-          <p class="hero-author"><img src="images/szerzo-arc.webp" width="480" height="480" alt=""><span><strong>Szabó Z. László</strong><span>Kétgyermekes író apa, a könyv szerzője</span></span></p>
+          <p class="hero-author"><img src="images/szerzo-arc-tavoli.webp" width="480" height="480" alt=""><span><strong>Szabó Z. László</strong><span>Kétgyermekes író apa, a könyv szerzője</span></span></p>
           <div class="buy-box" id="hero-buy">
             <div class="price-row"><span class="price">3&nbsp;990&nbsp;Ft</span><span>egyszeri ár · azonnali letöltés</span></div>
             <a class="btn btn-primary btn-block" href="#order" data-cta>Kérem a kézikönyvet! <svg class="i" width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -369,7 +371,7 @@ html:has(.co[open]) { overflow: hidden; }
             <g stroke="#d93a14" stroke-width="7"><path d="M78 6C92 40 70 72 30 84"/><path d="M46 62L28 85L55 94"/></g>
           </svg>
         </div>
-        <img src="images/szerzo.webp" width="1000" height="1000" alt="Szabó Z. László portréja" loading="lazy">
+        <div class="author-frame"><img src="images/szerzo.webp" width="1000" height="1000" alt="Szabó Z. László portréja" loading="lazy"></div>
       </div>
       <div>
         <p><strong>Nem rossz szülő vagy. Csak senki nem mutatta meg, mit mondj ilyenkor.</strong> Ez a csomag nem elmélet, hanem haditerv: konkrét mondatok, amiket a hiszti közepén is előveszel.</p>
@@ -486,7 +488,7 @@ html:has(.co[open]) { overflow: hidden; }
         <strong>Hisztitől az együttműködésig</strong>
         <span>3&nbsp;990&nbsp;Ft · 30 napos garancia</span>
       </div>
-      <img class="co-face" src="images/szerzo-arc.webp" width="480" height="480" alt="">
+      <img class="co-face" src="images/szerzo-arc-tavoli.webp" width="480" height="480" alt="">
       <button type="button" class="co-close" aria-label="Bezárás" data-co-close><svg class="i" width="20" height="20" aria-hidden="true"><use href="#i-cross"/></svg></button>
     </div>
     <div class="co-bar" aria-hidden="true"><span></span></div>
