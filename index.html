@@ -155,7 +155,7 @@ a { color: var(--brand); }
 .items { display: flex; gap: 12px; margin-top: 12px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; }
 .items::-webkit-scrollbar { display: none; }
 .item { flex: 0 0 calc((100% - 12px) / 2); display: flex; flex-direction: column; overflow: hidden; border-radius: 16px; background: var(--paper); scroll-snap-align: start; }
-.item img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+.item img { display: block; box-sizing: border-box; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; padding: 12px; background: #fff; border: 1px solid var(--line); border-bottom: 0; border-radius: 16px 16px 0 0; }
 @media (max-width: 560px) { .item { flex-basis: 90%; } .item img { aspect-ratio: 1; } }
 .item div { flex: 1; display: flex; flex-direction: column; gap: 8px; padding: 20px 24px 28px; }
 .item .tag { background: #fff; color: var(--ink); }
@@ -192,7 +192,9 @@ a { color: var(--brand); }
 .checkout .h2 { margin-bottom: 12px; }
 .field { display: flex; flex-direction: column; gap: 4px; min-width: 0; font-size: 15px; font-weight: 600; line-height: 1.3; }
 .field input { width: 100%; min-height: 48px; padding: 0 14px; border: 1px solid var(--muted); border-radius: 10px; background: #fff; color: var(--ink); font: inherit; font-size: 16px; font-weight: 400; }
-.field-row { display: grid; grid-template-columns: 1fr 2fr; gap: 12px; }
+.field[hidden] { display: none; }
+.co-link { align-self: flex-start; min-height: 44px; padding: 0; border: 0; background: none; color: var(--brand); font: inherit; font-size: 15px; font-weight: 600; text-decoration: underline; cursor: pointer; }
+.field-row { display: grid; grid-template-columns: 112px 1fr; gap: 12px; }
 .pay-slot { padding: 16px; border: 1px dashed var(--muted); border-radius: 10px; background: var(--brand-soft); color: var(--muted); font-size: 15px; }
 .accept { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.4; }
 .accept input { flex-shrink: 0; width: 20px; height: 20px; margin: 0; }
@@ -265,6 +267,8 @@ html:has(.co[open]) { overflow: hidden; }
 .sticky-bar .container { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .sticky-name { font-size: 15px; font-weight: 700; line-height: 1.3; }
 .sticky-meta { font-size: 13px; color: var(--muted); }
+.sticky-bar .btn { flex-shrink: 0; white-space: nowrap; }
+@media (max-width: 340px) { .sticky-meta span { display: none; } }
 @media (max-width: 560px) { .sticky-name { display: none; } .sticky-meta { font-size: 14px; font-weight: 700; color: var(--ink); } }
 
 /* Süti-sáv */
@@ -291,7 +295,7 @@ html:has(.co[open]) { overflow: hidden; }
 <header class="header">
   <div class="container">
     <span class="brand">Hisztitől az együttműködésig</span>
-    <a class="btn btn-primary btn-pill" href="#order" data-cta>Megrendelem</a>
+    <a class="btn btn-primary btn-pill" href="#order" data-cta>Kérem a kézikönyvet</a>
   </div>
 </header>
 
@@ -402,12 +406,12 @@ html:has(.co[open]) { overflow: hidden; }
         <div class="vihar" aria-hidden="true"><span>V</span><span>I</span><span>H</span><span>A</span><span>R</span></div>
       </div>
       <div class="items" data-carousel role="group" aria-label="A csomag tartalma, vízszintesen lapozható" tabindex="0">
-        <article class="item c-teal"><img src="images/stock/gyorssegely.webp" width="720" height="480" alt="" loading="lazy"><div><span class="tag t-brand">BENNE VAN</span><h3>2 oldalas gyorssegély</h3><p>Telefonra optimalizálva – a bolt padlóján is kéznél van.</p></div></article>
-        <article class="item c-gold"><img src="images/stock/forgatokonyv.webp" width="720" height="480" alt="" loading="lazy"><div><span class="tag t-brand">BENNE VAN</span><h3>10 kész forgatókönyv</h3><p>Készülődés, evés, fürdés, lefekvés – konkrét mondatokkal.</p></div></article>
-        <article class="item c-peach"><img src="images/stock/beszelgetes.webp" width="720" height="480" alt="" loading="lazy"><div><span class="tag t-yellow">BÓNUSZ 1</span><h3>Beszélgess velem!</h3><p>100 kérdés, amitől megnyílik a gyermeked.</p></div></article>
-        <article class="item c-brand"><img src="images/stock/jatek.webp" width="720" height="480" alt="" loading="lazy"><div><span class="tag t-green">BÓNUSZ 2</span><h3>Fejlesztés játék közben</h3><p>30 otthoni játék beszédre, figyelemre, memóriára.</p></div></article>
-        <article class="item c-teal"><img src="images/stock/konyvek.webp" width="720" height="480" alt="" loading="lazy"><div><span class="tag t-pink">BÓNUSZ 3</span><h3>Szerettesd meg vele a könyveket!</h3><p>Hogy az esti mese közös öröm legyen.</p></div></article>
-        <article class="item c-gold"><img src="images/stock/szokasok.webp" width="720" height="480" alt="" loading="lazy"><div><span class="tag t-yellow">BÓNUSZ 4</span><h3>20 kibírhatatlan gyerekszokás</h3><p>Mi áll mögöttük, és hogyan reagálj veszekedés nélkül.</p></div></article>
+        <article class="item c-teal"><img src="images/kartyak/gyorssegely.svg" width="800" height="800" alt="" loading="lazy"><div><span class="tag t-brand">BENNE VAN</span><h3>2 oldalas gyorssegély</h3><p>Telefonra optimalizálva – a bolt padlóján is kéznél van.</p></div></article>
+        <article class="item c-gold"><img src="images/kartyak/forgatokonyv.svg" width="800" height="800" alt="" loading="lazy"><div><span class="tag t-brand">BENNE VAN</span><h3>10 kész forgatókönyv</h3><p>Készülődés, evés, fürdés, lefekvés – konkrét mondatokkal.</p></div></article>
+        <article class="item c-peach"><img src="images/kartyak/beszelgetes.svg" width="800" height="800" alt="" loading="lazy"><div><span class="tag t-yellow">BÓNUSZ 1</span><h3>Beszélgess velem!</h3><p>100 kérdés, amitől megnyílik a gyermeked.</p></div></article>
+        <article class="item c-brand"><img src="images/kartyak/jatek.svg" width="800" height="800" alt="" loading="lazy"><div><span class="tag t-green">BÓNUSZ 2</span><h3>Fejlesztés játék közben</h3><p>30 otthoni játék beszédre, figyelemre, memóriára.</p></div></article>
+        <article class="item c-teal"><img src="images/kartyak/konyvek.svg" width="800" height="800" alt="" loading="lazy"><div><span class="tag t-pink">BÓNUSZ 3</span><h3>Szerettesd meg vele a könyveket!</h3><p>Hogy az esti mese közös öröm legyen.</p></div></article>
+        <article class="item c-gold"><img src="images/kartyak/szokasok.svg" width="800" height="800" alt="" loading="lazy"><div><span class="tag t-yellow">BÓNUSZ 4</span><h3>20 kibírhatatlan gyerekszokás</h3><p>Mi áll mögöttük, és hogyan reagálj veszekedés nélkül.</p></div></article>
       </div>
       <div class="carousel-nav" hidden>
         <button type="button" aria-label="Előző kártya"><svg class="i" width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></button>
@@ -462,6 +466,18 @@ html:has(.co[open]) { overflow: hidden; }
           <summary>Mindent kipróbáltam már. Ez miért más?<svg class="i" width="22" height="22" aria-hidden="true"><use href="#i-chev"/></svg></summary>
           <p>Nem tippeket kapsz, hanem egy rendszert: konkrét mondatokat, forgatókönyveket és egy azonnal bevethető protokollt.</p>
         </details>
+        <details>
+          <summary>Hogyan kapom meg?<svg class="i" width="22" height="22" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+          <p>A fizetés után a letöltési linket e-mailben küldjük a megadott címre. A csomag PDF, így telefonon, tableten és gépen is olvasható. Postán nem érkezik semmi.</p>
+        </details>
+        <details>
+          <summary>Nem lesz ettől túl engedékeny?<svg class="i" width="22" height="22" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+          <p>Nem az a cél, hogy mindent ráhagyj. A módszer abban segít, hogy kiabálás nélkül, konkrét mondatokkal kezeld a helyzetet, miközben te maradsz a szülő.</p>
+        </details>
+        <details>
+          <summary>Mi van, ha a párom máshogy csinálja?<svg class="i" width="22" height="22" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+          <p>A VIHAR-tervet és a kész mondatokat egyedül is használhatod, nem kell hozzá, hogy mindketten ugyanúgy csináljátok. A 2 oldalas gyorssegélyt könnyen megmutathatod a párodnak is.</p>
+        </details>
       </div>
     </div>
   </section>
@@ -498,21 +514,23 @@ html:has(.co[open]) { overflow: hidden; }
       <h2 class="co-title">Hova küldjük a digitális könyvet?</h2>
       <label class="field">Név<input type="text" name="customer_name" autocomplete="name" required></label>
       <label class="field"><span>E-mail <span class="field-note">(erre a címre kapod a kézikönyvet.)</span></span><input type="email" name="customer_email" autocomplete="email" required></label>
-      <button type="submit" class="btn btn-primary btn-block">Tovább <svg class="i" width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      <button type="submit" class="btn btn-primary btn-block">Tovább a számlázáshoz <svg class="i" width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></button>
     </div>
 
     <div class="co-step" tabindex="-1" hidden>
       <h2 class="co-title">Kinek szóljon a számla?</h2>
       <label class="field">Számlázási név<input type="text" name="billing_name" autocomplete="billing name" required></label>
       <div class="field-row">
-        <label class="field">Irányítószám<input type="text" name="billing_zip" autocomplete="billing postal-code" required></label>
+        <label class="field">Irányítószám<input type="text" name="billing_zip" inputmode="numeric" autocomplete="billing postal-code" required></label>
         <label class="field">Város<input type="text" name="billing_city" autocomplete="billing address-level2" required></label>
+        <datalist id="city-options"></datalist>
       </div>
       <label class="field">Cím<input type="text" name="billing_address" autocomplete="billing street-address" required></label>
-      <label class="field">Adószám (opcionális)<input type="text" name="billing_tax_number"></label>
+      <button type="button" class="co-link" id="tax-toggle" aria-expanded="false" aria-controls="tax-field">Céges számlát kérek</button>
+      <label class="field" id="tax-field" hidden>Adószám<input type="text" name="billing_tax_number" inputmode="numeric"></label>
       <div class="co-actions">
         <button type="button" class="btn btn-outline" data-co-back>Vissza</button>
-        <button type="submit" class="btn btn-primary">Tovább <svg class="i" width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        <button type="submit" class="btn btn-primary">Tovább a fizetéshez <svg class="i" width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></button>
       </div>
     </div>
 
@@ -537,9 +555,9 @@ html:has(.co[open]) { overflow: hidden; }
   <div class="container">
     <div>
       <div class="sticky-name">Hisztitől az együttműködésig</div>
-      <div class="sticky-meta">3&nbsp;990&nbsp;Ft · 30 napos garancia</div>
+      <div class="sticky-meta">3&nbsp;990&nbsp;Ft<span> · 30 napos garancia</span></div>
     </div>
-    <a class="btn btn-primary btn-sm" href="#order" data-cta>Megrendelem</a>
+    <a class="btn btn-primary btn-sm" href="#order" data-cta>Kérem a kézikönyvet</a>
   </div>
 </div>
 
@@ -659,6 +677,73 @@ html:has(.co[open]) { overflow: hidden; }
   form.querySelector("[data-co-close]").addEventListener("click", function () { dialog.close(); });
   dialog.addEventListener("click", function (e) { if (e.target === dialog) dialog.close(); });
   window.addEventListener("resize", function () { if (dialog.open) fitStep(); });
+
+  // Céges számla: az adószám csak kérésre jelenik meg, és akkor kötelező
+  var taxToggle = document.getElementById("tax-toggle");
+  var taxField = document.getElementById("tax-field");
+  taxToggle.addEventListener("click", function () {
+    var open = taxField.hidden;
+    var name = form.elements.billing_name;
+    taxField.hidden = !open;
+    form.elements.billing_tax_number.required = open;
+    taxToggle.setAttribute("aria-expanded", String(open));
+    taxToggle.textContent = open ? "Mégsem kérek céges számlát" : "Céges számlát kérek";
+    if (open) {
+      // Céges számlán a cég neve áll, ezért az előtöltött személynevet nem hagyjuk ott
+      if (name.value === form.elements.customer_name.value) name.value = "";
+      name.placeholder = "Cégnév";
+      if (!touch) (name.value ? form.elements.billing_tax_number : name).focus();
+    } else {
+      form.elements.billing_tax_number.value = "";
+      name.placeholder = "";
+      if (!name.value) name.value = form.elements.customer_name.value;
+    }
+    fitStep();
+  });
+
+  // A várost az irányítószámból töltjük ki. A lista a saját tárhelyen van, így az adat nem megy külső szolgáltatóhoz.
+  var zipInput = form.elements.billing_zip;
+  var cityInput = form.elements.billing_city;
+  var cityOptions = document.getElementById("city-options");
+  var zipList = null;
+  var autoCity = "";
+
+  function loadZips() {
+    zipList = zipList || fetch("iranyitoszamok.json").then(function (r) { return r.json(); }).catch(function () { return {}; });
+    return zipList;
+  }
+  function setCity(value) {
+    if (cityInput.value === "" || cityInput.value === autoCity) {
+      cityInput.value = value;
+      autoCity = value;
+    }
+  }
+  function fillCity() {
+    var code = zipInput.value.trim();
+    cityOptions.textContent = "";
+    cityInput.removeAttribute("list");
+    cityInput.placeholder = "";
+    if (!/^\d{4}$/.test(code)) { setCity(""); return; }
+    loadZips().then(function (zips) {
+      if (zipInput.value.trim() !== code) return;
+      var found = zips[code];
+      if (Array.isArray(found)) {
+        // Több településhez tartozó kódnál a vevő választ, nem találgatunk
+        found.forEach(function (name) {
+          var option = document.createElement("option");
+          option.value = name;
+          cityOptions.appendChild(option);
+        });
+        cityInput.setAttribute("list", "city-options");
+        cityInput.placeholder = "Válassz";
+        setCity("");
+      } else {
+        setCity(found || "");
+      }
+    });
+  }
+  zipInput.addEventListener("input", fillCity);
+  zipInput.addEventListener("focus", loadZips);
 
   // Meta Pixel csak hozzájárulás után (GDPR)
   if (!CONFIG.metaPixelId) return;
