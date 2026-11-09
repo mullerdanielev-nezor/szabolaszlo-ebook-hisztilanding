@@ -1,0 +1,37 @@
+A kartyakon hasznalt kepek forrasa es licence (Wikimedia Commons).
+
+gyorssegely.webp
+  Cim: File:Mother and child sitting on the pavement.jpg
+  Szerzo: DimiTalen
+  Licenc: CC0
+  Forras: https://commons.wikimedia.org/wiki/File:Mother_and_child_sitting_on_the_pavement.jpg
+
+forgatokonyv.webp
+  Cim: File:Child-559415 1920.jpg
+  Szerzo: Vikvarga
+  Licenc: CC0
+  Forras: https://commons.wikimedia.org/wiki/File:Child-559415_1920.jpg
+
+beszelgetes.webp
+  Cim: File:Father and Daughter (Unsplash).jpg
+  Szerzo: Caroline Hernandez carolinehdz
+  Licenc: CC0
+  Forras: https://commons.wikimedia.org/wiki/File:Father_and_Daughter_(Unsplash).jpg
+
+jatek.webp
+  Cim: File:Toddler Toy Floor Riga (Unsplash).jpg
+  Szerzo: Daiga Ellaby daiga_ellaby
+  Licenc: CC0
+  Forras: https://commons.wikimedia.org/wiki/File:Toddler_Toy_Floor_Riga_(Unsplash).jpg
+
+szokasok.webp
+  Cim: File:ChildwithHeadAche 2010.jpg
+  Szerzo: mintchipdesigns
+  Licenc: CC0
+  Forras: https://commons.wikimedia.org/wiki/File:ChildwithHeadAche_2010.jpg
+
+konyvek.webp
+  Cim: File:Children's books (Unsplash).jpg
+  Szerzo: Robyn Budlender robzy_m
+  Licenc: CC0
+  Forras: https://commons.wikimedia.org/wiki/File:Children%27s_books_(Unsplash).jpg
